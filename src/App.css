@@ -1,107 +1,202 @@
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #ccc;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  box-sizing: border-box;
-}
-
-.app-content {
-  width: 100%;
-  max-width: 900px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.app-header {
-  text-align: center;
-  margin-bottom: 30px;
-  width: 100%;
-}
-
-.app-header h1 {
-  color: #e69526;
-  font-size: 2.5rem;
-  margin: 0;
-}
-
-.app-header p {
-  letter-spacing: 3px;
-  opacity: 0.7;
-}
-
-.app-footer {
-  margin-top: 40px;
-  font-size: 12px;
-  opacity: 0.4;
-  text-align: center;
-}
-/* Глобальные стили */
-html,
-body,
-#root {
-  height: 100%;
-  width: 100%;
+/* Reset и базовые стили */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
-* {
-  box-sizing: inherit;
-}
-
+html,
 body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
   background-color: #0a0a0a;
-  overflow-x: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.app {
-  min-height: 100vh;
+#root {
+  height: 100%;
   width: 100%;
+  overflow: hidden;
+}
+
+/* Основной контейнер */
+.app-container {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #ccc;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  padding: 20px;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
+/* Контент - теперь с прокруткой */
 .app-content {
   width: 100%;
   max-width: 900px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
+/* Убираем скроллбар но оставляем возможность скроллить */
+.app-content::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/* Заголовок */
 .app-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   width: 100%;
+  flex-shrink: 0;
 }
 
-.app-header h1 {
-  color: #e69526;
-  font-size: 2.5rem;
+.main-title {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   margin: 0;
+  line-height: 1.2;
+  word-break: break-word;
+  padding: 0 5px;
 }
 
-.app-header p {
-  letter-spacing: 3px;
+.subtitle {
+  letter-spacing: 2px;
   opacity: 0.7;
   margin-top: 10px;
+  line-height: 1.4;
+  font-size: clamp(0.8rem, 3vw, 1rem);
+  padding: 0 5px;
 }
 
+/* Футер */
 .app-footer {
-  margin-top: 40px;
+  margin-top: auto;
+  padding: 20px 0 10px;
   font-size: 12px;
   opacity: 0.4;
   text-align: center;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+/* Медиа-запросы для мобильных устройств */
+
+/* Для экранов до 768px (планшеты) */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 5px;
+  }
+
+  .app-content {
+    padding: 5px;
+    max-width: 100%;
+  }
+
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* Для экранов до 480px (телефоны) */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 0;
+    justify-content: flex-start;
+  }
+
+  .app-content {
+    padding: 10px 5px;
+  }
+
+  .app-header {
+    margin-bottom: 15px;
+  }
+
+  .main-title {
+    font-size: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 1.3;
+  }
+
+  .app-footer {
+    font-size: 10px;
+    padding: 15px 0 5px;
+  }
+}
+
+/* Для очень маленьких экранов (до 360px) */
+@media (max-width: 360px) {
+  .main-title {
+    font-size: 1.3rem;
+  }
+
+  .subtitle {
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+
+  .app-content {
+    padding: 5px 3px;
+  }
+}
+
+/* Горизонтальная ориентация */
+@media (max-height: 500px) and (orientation: landscape) {
+  .app-container {
+    padding: 2px;
+  }
+
+  .app-content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .app-header {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .main-title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 11px;
+  }
+}
+
+/* Предотвращаем стандартное поведение скролла на iOS */
+@supports (-webkit-overflow-scrolling: touch) {
+  .app-content {
+    -webkit-overflow-scrolling: touch;
+  }
 }

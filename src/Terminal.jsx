@@ -204,7 +204,7 @@ const Terminal = ({ isCreative, setIsCreative }) => {
       clearAnimations();
 
       if (cmd === "/gamemode_c") {
-        setIsCreative(!isCreative); // Используем пропс setIsCreative
+        setIsCreative(!isCreative);
         newHistory.push({ type: "bot", text: COMMANDS[cmd] });
       } else if (cmd === "get_wish") {
         newHistory.push({ type: "bot", text: COMMANDS[cmd] });
@@ -225,7 +225,7 @@ const Terminal = ({ isCreative, setIsCreative }) => {
 
   const getContainerStyle = () => {
     const baseStyle = "terminal-container";
-    return `${baseStyle} ${isCreative ? "terminal-creative" : ""}`; // Используем пропс isCreative
+    return `${baseStyle} ${isCreative ? "terminal-creative" : ""}`;
   };
 
   return (
@@ -241,7 +241,7 @@ const Terminal = ({ isCreative, setIsCreative }) => {
               line.type === "bot"
                 ? { color: isCreative ? "#55ff55" : "#e69526" }
                 : {}
-            } // Используем пропс isCreative
+            }
           >
             {line.text}
           </div>
@@ -252,13 +252,14 @@ const Terminal = ({ isCreative, setIsCreative }) => {
           <div className="terminal-bot-line ascii-title-animation">
             <pre
               style={{
-                margin: "10px 0",
+                margin: "5px 0",
                 lineHeight: "1.2",
                 fontFamily: "'Courier New', monospace",
-                fontSize: "8px",
+                fontSize: "6px",
                 color: "#e69526",
                 textAlign: "center",
                 whiteSpace: "pre",
+                overflowX: "auto",
               }}
             >
               {ASCII_TITLE}
@@ -286,12 +287,13 @@ const Terminal = ({ isCreative, setIsCreative }) => {
             <pre
               style={{
                 margin: "0",
-                lineHeight: "1.2",
-                fontFamily: "'Monaco', 'Consolas', monospace'",
-                fontSize: "12px",
+                lineHeight: "1",
+                fontFamily: "'Monaco', 'Consolas', monospace",
+                fontSize: "10px",
                 color: "#FFD700",
                 textAlign: "center",
                 textShadow: "0 0 10px rgba(255, 215, 0, 0.5)",
+                overflowX: "auto",
               }}
             >
               {CAKE_PARTS[cakeStep]}
