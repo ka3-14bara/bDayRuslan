@@ -1,0 +1,107 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ccc;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+.app-content {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.app-header h1 {
+  color: #e69526;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.app-header p {
+  letter-spacing: 3px;
+  opacity: 0.7;
+}
+
+.app-footer {
+  margin-top: 40px;
+  font-size: 12px;
+  opacity: 0.4;
+  text-align: center;
+}
+/* Глобальные стили */
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #0a0a0a;
+  overflow-x: hidden;
+}
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ccc;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+.app-content {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.app-header h1 {
+  color: #e69526;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.app-header p {
+  letter-spacing: 3px;
+  opacity: 0.7;
+  margin-top: 10px;
+}
+
+.app-footer {
+  margin-top: 40px;
+  font-size: 12px;
+  opacity: 0.4;
+  text-align: center;
+}
